@@ -17,6 +17,7 @@ jobs:
                 issues(first:100, labels: [$label]) {
                   nodes {
                     id
+                    url
                   }
                 }
               }
@@ -29,6 +30,6 @@ jobs:
             console.log("Repo Owner",context.repo.owner)
             console.log("Repo Name",context.repo.repo)
             const result = await github.graphql(query, variables)
-            console.log(result.repository.issues.nodes[0].id)
+            console.log(result.repository.issues.nodes[0].url)
             console.log(result.repository.issues[0])
             console.log(result.repository.issues.nodes[0])
