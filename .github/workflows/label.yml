@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: andymckay/labeler@master
       if: |
-        contains(github.event.issue.labels.*.name, 'Incident') && contains(github.event.issue.labels.*.name, 'Active') &&  github.event.action == 'closed'
+        contains(github.event.issue.labels.*.name, 'Incident') &&  github.event.action == 'closed'
       with:
           add-labels: "Closed"
           remove-labels: "Active"
