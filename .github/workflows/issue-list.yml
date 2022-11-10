@@ -18,6 +18,7 @@ jobs:
                   nodes {
                     id
                   }
+                 count
                 }
               }
             }`;
@@ -29,4 +30,7 @@ jobs:
             console.log("Repo Owner",context.repo.owner)
             console.log("Repo Name",context.repo.repo)
             const result = await github.graphql(query, variables)
-            console.log(result.repository.issues.nodes.count)
+            console.log(result.repository.issues.nodes.id)
+            console.log(result.repository.issues.count)
+            console.log(result.repository.issues[0])
+            console.log(result.repository.issues.nodes[0])
