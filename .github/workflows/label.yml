@@ -9,25 +9,10 @@ jobs:
   remove-incident-active-label:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions-ecosystem/action-remove-labels@v1
+    - uses: andymckay/labeler@master
       if: |
         contains(github.event.issue.labels.*.name, 'Incident') && contains(github.event.issue.labels.*.name, 'Active') &&  github.event.action == 'closed'
       with:
-        labels: Active
-        
-  apply-incident-closed-label:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v6
-        if: |
-          contains(github.event.issue.labels.*.name, 'Incident') &&  github.event.action == 'closed'
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['Closed']
-            })
+          add-labels: "Closed"
+          remove-labels: "Active"
   
