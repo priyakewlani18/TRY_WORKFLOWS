@@ -1,7 +1,7 @@
 name: "Issue Labeler"
 on:
   issues:
-    types: [opened, edited, closed]
+    types: [opened, edited, closed, reopened]
     if: >-
       contains(github.event.issue.labels.*.name, 'Incident')   |
       contains(github.event.issue.labels.*.name, 'incident-repair') 
