@@ -6,6 +6,15 @@ on:
       contains(github.event.issue.labels.*.name, 'Incident')   |
       contains(github.event.issue.labels.*.name, 'incident-repair') 
 jobs:
+  add-incident-active-label:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: andymckay/labeler@master
+      if: |
+        contains(github.event.issue.labels.*.name, 'Incident') &&  (github.event.action == 'opened' || github.event.action == 'reopened')
+      with:
+          add-labels: "Active"
+          remove-labels: "Closed"
   remove-incident-active-label:
     runs-on: ubuntu-latest
     steps:
