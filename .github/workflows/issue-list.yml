@@ -26,5 +26,7 @@ jobs:
               name: context.repo.repo,
               label: 'Active'
             }
+            console.log("Repo Owner",context.repo.owner)
+            console.log("Repo Name",context.repo.repo)
             const result = await github.graphql(query, variables)
             console.log(result)
