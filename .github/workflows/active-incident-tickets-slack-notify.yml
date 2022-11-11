@@ -16,9 +16,9 @@ jobs:
         id: get_active_issue_list
         uses: actions/checkout@v3
       - run: |
-          outputs=$(gh issue list --label "Incident" --label "Active")
-           echo "${outputs}"
+          data=$(gh issue list --label "Incident" --label "Active")
+           echo "data=$data" >> $GITHUB_OUTPUT
           
       - name: check output
         run: 
-          echo "${steps.get_active_issue_list.outputs}"
+          echo "${steps.get_active_issue_list.outputs.data}"
