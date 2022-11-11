@@ -16,7 +16,10 @@ jobs:
         id: step_1
         uses: actions/checkout@v3
       - run: 
-           echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url" | jq -r '.url')" >> $GITHUB_ENV
+           active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url" )
+           echo "${active_issue_list}"
+           echo "*********************HEY********"
+           echo "$(active_issue_list | jq -r '.url')"
 
           
       - name: check output
