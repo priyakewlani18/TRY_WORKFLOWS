@@ -15,9 +15,8 @@ jobs:
       - name: Get active variable
         id: get_active_issue_list
         uses: actions/checkout@v3
-      - run: |
-          data=$(gh issue list --label "Incident" --label "Active")
-           echo "data=$data" >> $GITHUB_OUTPUT
+      - run: 
+           echo "data=$(gh issue list --label "Incident" --label "Active")" >> $GITHUB_OUTPUT
           
       - name: check output
         run: 
