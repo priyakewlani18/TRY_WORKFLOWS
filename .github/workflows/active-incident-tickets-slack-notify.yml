@@ -7,7 +7,5 @@ jobs:
     steps:
       - run: numOpenIssues= "$(gh issue list)"
               echo 'NUM_OPEN_ISSUES='$numOpenIssues
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
     
