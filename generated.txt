@@ -1,4 +1,1 @@
-6	OPEN	Creating this new issue		2022-11-11 06:31:26 +0000 UTC
-5	OPEN	Fifth Issue	Active	2022-11-10 07:49:37 +0000 UTC
-3	OPEN	Third Issue	Incident, Closed	2022-11-10 09:15:25 +0000 UTC
 1	OPEN	First Issue	Incident, Active	2022-11-10 10:17:29 +0000 UTC
