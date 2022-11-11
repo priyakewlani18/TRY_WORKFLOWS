@@ -21,4 +21,4 @@ jobs:
           
       - name: check output
         run: 
-          echo "${env.active_issue_list}"
+          echo "${{ env.GH_TOKEN }}"
