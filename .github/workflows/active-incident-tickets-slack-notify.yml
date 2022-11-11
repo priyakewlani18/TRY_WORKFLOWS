@@ -20,4 +20,4 @@ jobs:
           
       - name: check output
         run: 
-          echo "${steps.get_active_issue_list.outputs.data}
+          echo "${steps.get_active_issue_list.outputs.data}"
