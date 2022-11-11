@@ -1,13 +1,13 @@
 name: Comment when opened
 on:
-  issues:
-    types:
-      - opened
+  workflow_dispatch:
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+      - run: numOpenIssues= "$(gh issue list)"
+              echo 'NUM_OPEN_ISSUES='$numOpenIssues
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+          
+    
