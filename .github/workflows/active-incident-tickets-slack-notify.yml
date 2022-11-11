@@ -1,36 +1,13 @@
-name: Active Incidents Slack Notify
-
+name: Comment when opened
 on:
-  # schedule:
-  #- cron: "* * 14 * * "
-  workflow_dispatch:
-
+  issues:
+    types:
+      - opened
 jobs:
-  list-issues:
+  comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const query = `query($owner:String!, $name:String!, $label:String!) {
-              repository(owner:$owner, name:$name){
-                issues(first:100, labels: [$label]) {
-                  nodes {
-                    id
-                    url
-                  }
-                }
-              }
-            }`;
-            const variables = {
-              owner: context.repo.owner,
-              name: context.repo.repo,
-              label: 'Active', 'Incident'
-            }
-            console.log("Repo Owner",context.repo.owner)
-            console.log("Repo Name",context.repo.repo)
-            const result = await github.graphql(query, variables)
-            
-          
-            console.log(result.repository.issues.nodes[0].url)
-            console.log(result.repository.issues.nodes[1].url)
+      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
