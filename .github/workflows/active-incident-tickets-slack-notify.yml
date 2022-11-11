@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - run: 
            echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
-           echo ::set-output name=IDTOKEN::$(gh issue list --label "Incident" --label "Active" --json "url" | jq -r '.value')
+           echo ::set-output name=IDTOKEN::$(gh issue list --label "Incident" --label "Active" --json "url" | jq -r '.url')
            echo $IDTOKEN
           
       - name: check output
