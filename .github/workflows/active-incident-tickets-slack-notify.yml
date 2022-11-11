@@ -21,4 +21,4 @@ jobs:
           
       - name: check output
         run: 
-          echo "${outputs}"
+          echo "${steps.get_active_issue_list.outputs}"
