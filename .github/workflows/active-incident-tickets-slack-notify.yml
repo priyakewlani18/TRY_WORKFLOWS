@@ -1,4 +1,4 @@
-name: Comment when opened
+name: Get Issue list using CLI
 on:
   workflow_dispatch:
 jobs:
