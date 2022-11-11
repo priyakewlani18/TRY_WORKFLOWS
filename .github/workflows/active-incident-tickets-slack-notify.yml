@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get active variable
-        id: get_active_issue_list
+        id: step_1
         uses: actions/checkout@v3
       - run: 
-           echo "data=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
+           echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
 
           
       - name: check output
         run: 
-          echo "${{ env.data }}"
+          echo "${{ env.active_issue_list.url }}"
