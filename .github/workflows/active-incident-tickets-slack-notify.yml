@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          active_issue_list = $(gh issue list --label "Incident" --label "Active")
+          gh issue list --label "Incident" --label "Active" > active_issue_list
           echo 'active issue list $(active_issue_list)'
 
