@@ -1,6 +1,8 @@
 name: Get Issue list using CLI
 on:
   workflow_dispatch:
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   comment:
     runs-on: ubuntu-latest
@@ -13,7 +15,4 @@ jobs:
           git add .
           git commit -m "generated"
           git push
-      - env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
