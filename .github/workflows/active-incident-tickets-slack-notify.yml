@@ -21,6 +21,6 @@ jobs:
           
       - name: check output
         run: 
-          echo "*NPM  Active Incident List*\n${{fromJson(env.active_issue_list).url.value }}"
+          echo "*NPM  Active Incident List*\n${{env.active_issue_list[0].url}}"
           
           
