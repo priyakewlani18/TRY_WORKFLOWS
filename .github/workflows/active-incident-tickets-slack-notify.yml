@@ -9,10 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          gh issue list --label "Incident" --label "Active" -w > generated.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
+          active_issue_list = $(gh issue list --label "Incident" --label "Active")
+          echo'active issue list $(active_issue_list)
 
