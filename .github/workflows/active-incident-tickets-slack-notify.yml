@@ -21,4 +21,6 @@ jobs:
           
       - name: check output
         run: 
-          echo "${{ env.active_issue_list["url"] }}"
+          echo "*NPM  Active Incident List*\n${{env.active_issue_list }}"
+          
+          
