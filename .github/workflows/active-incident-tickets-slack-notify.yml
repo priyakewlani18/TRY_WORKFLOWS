@@ -6,3 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: gh issue list
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
