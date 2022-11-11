@@ -5,7 +5,4 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: numOpenIssues= "$(gh issue list)"
-              echo 'NUM_OPEN_ISSUES='$numOpenIssues
-          
-    
+      - run: gh issue list
