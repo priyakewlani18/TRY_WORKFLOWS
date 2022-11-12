@@ -16,10 +16,11 @@ jobs:
         id: activeissues
         uses: actions/checkout@v3
       - run:   
-         echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')" >> $GITHUB_ENV
+         echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url" )" >> $GITHUB_ENV
          
-      #- name: check output
-       # run:     
-        #  echo "*NPM  Active Incident List*\n${{ env.active_issue_list }} "
+      - name: check output
+        run:  
+          echo "${{ env.active_issue_list }} " | jq '.[] | .url' | tr -d '"' >> issue_list_urls
+          echo "*NPM  Active Incident List*\n${{ issue_list_urls }} "
           
           
