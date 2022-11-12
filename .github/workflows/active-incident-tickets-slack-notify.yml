@@ -16,7 +16,7 @@ jobs:
         id: activeissues
         uses: actions/checkout@v3
       - run:   
-         echo::set-output name=IDTOKEN::$(gh issue list --label "Incident" --label "Active" --json "url" | jq -r '.url')
+         echo::set-output name=IDTOKEN::$(gh issue list --label "Incident" --label "Active" --json "url")
          echo $IDTOKEN
           
       - name: check output
