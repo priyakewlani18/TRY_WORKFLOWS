@@ -19,7 +19,7 @@ jobs:
          echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
           
       - name: check output
-        run: 
-          echo "*NPM  Active Incident List*\n${{ env.active_issue_list }} "
+        run:     
+          echo "*NPM  Active Incident List*\n${{ jq '.env.active_issue_list[] | {url}' }} "
           
           
