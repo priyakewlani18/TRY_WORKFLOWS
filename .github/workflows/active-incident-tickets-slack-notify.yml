@@ -20,6 +20,6 @@ jobs:
           
       - name: check output
         run:     
-          echo "*NPM  Active Incident List*\n${{ jq '.env.active_issue_list[] | {url}' }} "
+          echo "*NPM  Active Incident List*\n${{ env.active_issue_list | jq '.[] | .url' }} "
           
           
