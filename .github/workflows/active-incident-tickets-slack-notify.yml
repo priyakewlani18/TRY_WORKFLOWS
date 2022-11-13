@@ -15,7 +15,7 @@ jobs:
       - name: Get active variable
         id: activeissues
         uses: actions/checkout@v3
-      - run:   
-         echo $(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
+      - run:
+         echo "::set-env name=FOO::$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')"
 
           
