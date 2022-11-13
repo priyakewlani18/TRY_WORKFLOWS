@@ -23,7 +23,7 @@ jobs:
          
       - name: check output
         run:
-         echo $env.FOO
+         echo ${{ steps.activeissues.outputs.FOO }}
        
           #issue_date=$(jq '.[] | .url' <<< $env.active_issue_list | tr -d '"')
 
