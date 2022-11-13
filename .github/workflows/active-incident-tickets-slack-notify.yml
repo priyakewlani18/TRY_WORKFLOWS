@@ -17,10 +17,13 @@ jobs:
         uses: actions/checkout@v3
       - run:
           #echo $(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')
-          echo $(gh issue list --label "Incident" --label "Active" --json "url")
+          #echo $(gh issue list --label "Incident" --label "Active" --json "url")
+          echo "FOO=$(echo "Anniversary")" >> $GITHUB_OUTPUT
          #echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url" )" >> $GITHUB_ENV
          
-      #- name: check output
-       # run:   
+      - name: check output
+        run:
+         echo $env.FOO
+       
           #issue_date=$(jq '.[] | .url' <<< $env.active_issue_list | tr -d '"')
 
