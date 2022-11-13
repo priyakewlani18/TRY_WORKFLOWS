@@ -16,7 +16,9 @@ jobs:
         id: activeissues
         uses: actions/checkout@v3
       - run:
-         echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
+          active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")
+          echo $active_issue_list
+         #echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
          
       - name: check output
         run:   
