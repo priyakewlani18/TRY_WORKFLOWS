@@ -20,5 +20,5 @@ jobs:
          
       - name: check output
         run:  
-          issue_date=$(echo ${{ env.active_issue_list }} | | jq '.[] | .url' | tr -d '"')
+          issue_date=$(echo ${{ env.active_issue_list }} | jq '.[] | .url' | tr -d '"')
 
