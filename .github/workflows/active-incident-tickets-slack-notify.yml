@@ -19,6 +19,6 @@ jobs:
          echo "active_issue_list=$(gh issue list --label "Incident" --label "Active" --json "url")" >> $GITHUB_ENV
          
       - name: check output
-        run:  
-          issue_date=$(echo ${{ env.active_issue_list }} | jq '.[] | .url' | tr -d '"')
+        run:   
+          issue_date=$(jq '.[] | .url' <<< "$env.active_issue_list" | tr -d '"')
 
