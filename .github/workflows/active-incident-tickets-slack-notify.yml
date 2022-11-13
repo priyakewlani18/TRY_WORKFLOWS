@@ -20,5 +20,5 @@ jobs:
          
       - name: check output
       - run:
-         echo "*NPM  Active Incident List*\n${{ FOO }} "
+         echo "*NPM  Active Incident List*\n${{ steps.activeissues.outputs.FOO }} "
           
