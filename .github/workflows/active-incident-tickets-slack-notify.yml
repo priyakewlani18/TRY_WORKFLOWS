@@ -16,8 +16,5 @@ jobs:
         id: activeissues
         uses: actions/checkout@v3
       - run:
-         echo "::set-output name=FOO::$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')"
-         
-      - run:
-         echo "*NPM  Active Incident List*\n${{ steps.activeissues.outputs.FOO }} "
-          
+         echo "FOO=$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')" >> $GITHUB_OUTPUT
+
