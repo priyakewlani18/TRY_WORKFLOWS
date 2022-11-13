@@ -18,7 +18,6 @@ jobs:
       - run:
          echo "::set-output name=FOO::$(gh issue list --label "Incident" --label "Active" --json "url" | jq '.[] | .url' | tr -d '"')"
          
-      - name: check output
       - run:
          echo "*NPM  Active Incident List*\n${{ steps.activeissues.outputs.FOO }} "
           
