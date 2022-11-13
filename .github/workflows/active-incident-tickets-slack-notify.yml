@@ -20,5 +20,5 @@ jobs:
          
       - name: check output
         run:  
-          echo $FOO
+          echo $steps.activeissues.outputs.FOO
 
