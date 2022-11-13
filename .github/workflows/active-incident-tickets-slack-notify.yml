@@ -17,5 +17,8 @@ jobs:
         uses: actions/checkout@v3
       - run:
          echo "FOO=$(gh issue list --label "Incident" --label "Active" --json "url" )" >> $GITHUB_OUTPUT
-         echo $FOO
+         
+      - name: check output
+        run:  
+          echo $FOO
 
